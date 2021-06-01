@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-const API_KEY = '{7ae5bd08b5e81c46c8f9b5feeb2a9f96}';
+const API_KEY = '894c0c1d03546d1843b5efd334d6e479';
 const queryUrl = (city) => `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
 
 export default class WeatherDetailScreen extends React.Component {
@@ -54,7 +54,7 @@ export default class WeatherDetailScreen extends React.Component {
       )
     }
 
-    let celsius = this.state.main.temp - 273.15;
+    let celsius = this.state.main.main.temp - 273.15;
 
 
     return (
