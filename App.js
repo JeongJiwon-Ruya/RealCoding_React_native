@@ -6,6 +6,8 @@ import { View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import CityList from './CityList';
+import WeatherDetailScreen from './WeatherDetailScreen';
+
 
 const HomeScreen = () => (
   <View style={styles.container}>
@@ -13,6 +15,14 @@ const HomeScreen = () => (
     <StatusBar style="auto" />
   </View>
 );
+
+const DetailScreen = () => (
+  <View style={styles.container}>
+    <WeatherDetailScreen />
+    <StatusBar style="auto" />
+  </View>
+);
+
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
@@ -25,6 +35,11 @@ export default class App extends React.Component {
              component={HomeScreen}
              options={{ title : 'Cities' }}
            />
+           <Stack.Screen
+            name="Detail"
+            component={DetailScreen}
+            options={{ title: 'Weather' }}
+          />
          </Stack.Navigator>
        </NavigationContainer>
      );
