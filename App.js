@@ -9,16 +9,16 @@ import CityList from './CityList';
 import WeatherDetailScreen from './WeatherDetailScreen';
 
 
-const HomeScreen = () => (
+const HomeScreen = ({ navigation }) => (
   <View style={styles.container}>
-    <CityList/>
+    <CityList navigation={navigation} />
     <StatusBar style="auto" />
   </View>
 );
 
-const DetailScreen = () => (
+const DetailScreen = ({ navigation }) => (
   <View style={styles.container}>
-    <WeatherDetailScreen />
+    <WeatherDetailScreen navigation={navigation} />
     <StatusBar style="auto" />
   </View>
 );
