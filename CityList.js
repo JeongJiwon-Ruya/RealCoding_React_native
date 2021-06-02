@@ -28,9 +28,9 @@ export default class CityList extends React.Component {
     });
   }
 
-  renderItem(city) {
+  renderItem(city, index) {
     return (
-      <TouchableOpacity style={styles.item} onPress={() => this.onPressCity(city)}>
+      <TouchableOpacity style={index % 2 === 0 ? styles.item_red : styles.item_blue } onPress={() => this.onPressCity(city)}>
         <Text style={styles.text}>{city}</Text>
       </TouchableOpacity>
     );
@@ -39,8 +39,8 @@ export default class CityList extends React.Component {
   render() {
     return (
       <FlatList style={styles.container}
-                renderItem={({ item }) => this.renderItem(item)}
-                keyExtractor={item => item}
+                renderItem={({ item, index }) => this.renderItem(item, index)}
+                keyExtractor={(item, index) => index}
                 data={this.state.cities}
       />
     );
@@ -52,12 +52,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  item: {
+  item_red: {
     flex: 1,
     height: 50,
     justifyContent: 'center',
-
-    borderWidth: 1,
+    backgroundColor: 'rgba(176, 255, 236, 0.41)',
+    borderWidth: 0,
+    borderColor: 'orange',
+  },
+  item_blue: {
+    flex: 1,
+    height: 50,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(200, 237, 130, 0.41)',
+    borderWidth: 0,
     borderColor: 'orange',
   },
   text: {
